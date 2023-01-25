@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import './App.css';
+import{BrowserRouter, Route, Routes} from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import Dashboard from './pages/Dashboard.jsx';
+import ApproveAccommodation from './pages/ApproveAccommodation.jsx';
+import RequestAccommodation from './pages/RequestAccommodation.jsx';
+import ViewDocuments from './pages/ViewDocuments.jsx';
+import CompleteProfile from './pages/CompleteProfile.jsx';
+
+
+
+
+
+const App =()=> {
+   
+    return (
+      
+      <BrowserRouter>
+          
+      <Sidebar>
+      <Routes>
+        <Route path="/"element={<Dashboard/>}/>
+        <Route path="/dashboard"element={<Dashboard/>}/>
+        <Route path="/approveAccommodation"element={<ApproveAccommodation/>}/>
+        <Route path="/requestAccommodation"element={<RequestAccommodation/>}/>
+        <Route path="/viewDocuments"element={<ViewDocuments/>}/>
+        <Route path="/completeProfile"element={<CompleteProfile/>}/>
+       
+      </Routes>
+      </Sidebar>
+      
+      </BrowserRouter>
+    );
+  
+};
 
 export default App;
+
